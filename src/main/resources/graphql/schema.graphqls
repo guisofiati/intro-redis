@@ -1,0 +1,18 @@
+type Employee {
+    id: ID!
+    name: String!
+    age: Int!
+    email: String!
+    phone: String!
+}
+
+type Query {
+    findAll: [Employee]!
+    findById(id: String!): Employee!
+}
+
+type Mutation {
+    insert(name: String!, age: Int!, email: String!, phone: String!): Employee!
+    update(id: String!, name: String, age: Int, email: String, phone: String): Employee!
+    delete(id: String!): Boolean
+}

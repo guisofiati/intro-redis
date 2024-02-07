@@ -1,0 +1,10 @@
+INSERT INTO tb_employees (id, name, age, email, phone) VALUES ('e0a8b6db-fdba-4546-98ce-e3cc973120f9', 'Pedro', 31, 'pedro@gmail.com', '11999999999');
+INSERT INTO tb_employees (id, name, age, email, phone) VALUES ('ebf6df30-2108-4d37-8284-f1a6804bec64', 'Marcelo', 56, 'marcelo@gmail.com', '11988888888');
+INSERT INTO tb_employees (id, name, age, email, phone) VALUES ('9ca74569-677a-4782-8f01-7d6de09769bf', 'Viviane', 23, 'viviane@gmail.com', '11977777777');
+INSERT INTO tb_employees (id, name, age, email, phone) VALUES ('92548214-af4d-4858-a470-21303d7a9f4b', 'Ricardo', 33, 'ricardo@gmail.com', '11966666666');
+INSERT INTO tb_employees (id, name, age, email, phone) VALUES ('5753bee5-a37c-47b1-ba51-e25ca78953e5', 'Anna', 16, 'anna@gmail.com', '11955555555');
+INSERT INTO tb_employees (id, name, age, email, phone) VALUES ('3d31a997-51ea-48e4-bc9f-fbb0da58a76e', 'Silvia', 41, 'silvia@gmail.com', '11944444444');
+INSERT INTO tb_employees (id, name, age, email, phone) VALUES ('116311d5-ee93-4dd8-8d90-33a72e73cd8f', 'Mario', 40, 'mario@gmail.com', '11933333333');
+INSERT INTO tb_employees (id, name, age, email, phone) VALUES ('b13d3aad-1513-4294-a55f-cb9350ef5f2a', 'Maria', 49, 'maria@gmail.com', '11922222222');
+INSERT INTO tb_employees (id, name, age, email, phone) VALUES ('2ca2c722-7217-4d3d-95b1-e52631da982e', 'Paulo', 37, 'paulo@gmail.com', '11911111111');
+INSERT INTO tb_employees (id, name, age, email, phone) VALUES ('c4516108-1543-46cc-a3a9-22cfe43bbaea', 'Gustavo', 29, 'gustavo@gmail.com', '11900000000');

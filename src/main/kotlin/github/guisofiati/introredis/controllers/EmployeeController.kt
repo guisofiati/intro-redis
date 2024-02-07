@@ -25,12 +25,13 @@ class EmployeeController(val employeeService: EmployeeService) {
         return employeeService.findById(id)
     }
 
+    @CachePut(value = ["employees"], key = "#result.id") // necessary result.id instead employee.id
     @MutationMapping
     fun insert(@Arguments employee: Employee): Employee {
         return employeeService.insert(employee)
     }
 
-    @CachePut(value = ["employees"], key ="#id") // update result in cache
+    @CachePut(value = ["employees"], key = "#id") // update result in cache
     @MutationMapping
     fun update(@Argument id: String, @Arguments employee: Employee): Employee {
         return employeeService.update(id, employee)

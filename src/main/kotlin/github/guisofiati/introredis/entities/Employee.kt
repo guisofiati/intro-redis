@@ -2,12 +2,13 @@ package github.guisofiati.introredis.entities
 
 import jakarta.persistence.*
 import lombok.Data
+import java.io.Serializable
 import java.util.UUID
 
 @Data
 @Entity
 @Table(name = "TB_EMPLOYEES")
-class Employee {
+class Employee: Serializable {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     lateinit var id: UUID

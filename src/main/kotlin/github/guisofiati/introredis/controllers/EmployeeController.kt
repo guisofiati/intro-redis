@@ -2,6 +2,9 @@ package github.guisofiati.introredis.controllers
 
 import github.guisofiati.introredis.entities.Employee
 import github.guisofiati.introredis.services.EmployeeService
+import org.springframework.cache.annotation.CacheEvict
+import org.springframework.cache.annotation.CachePut
+import org.springframework.cache.annotation.Cacheable
 import org.springframework.graphql.data.method.annotation.Argument
 import org.springframework.graphql.data.method.annotation.Arguments
 import org.springframework.graphql.data.method.annotation.MutationMapping
@@ -16,6 +19,7 @@ class EmployeeController(val employeeService: EmployeeService) {
         return employeeService.findAll()
     }
 
+    @Cacheable(value = ["employees"], key = "#id")
     @QueryMapping
     fun findById(@Argument id: String): Employee {
         return employeeService.findById(id)
@@ -26,11 +30,13 @@ class EmployeeController(val employeeService: EmployeeService) {
         return employeeService.insert(employee)
     }
 
+    @CachePut(value = ["employees"], key ="#id")
     @MutationMapping
     fun update(@Argument id: String, @Arguments employee: Employee): Employee {
         return employeeService.update(id, employee)
     }
 
+    @CacheEvict(value = ["employees"], key = "#id", allEntries = false)
     @MutationMapping
     fun delete(@Argument id: String): Boolean {
         employeeService.delete(id)

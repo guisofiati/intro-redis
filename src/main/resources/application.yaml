@@ -15,3 +15,5 @@ spring:
     graphiql:
       enabled: true
       path: "/api/graphql"
+  cache:
+    type: redis

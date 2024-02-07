@@ -1,8 +1,6 @@
 # Queries
-
-## Employee
 ___
-### find all employees
+### Find all employees
 ```
 query {
 	findAll {
@@ -11,7 +9,7 @@ query {
 }
 ```
 ___
-### find employee by id
+### Find employee by id
 ```
 query {
   findById(id: "e0a8b6db-fdba-4546-98ce-e3cc973120f9") {
@@ -20,7 +18,7 @@ query {
 }
 ```
 ___
-### insert new employee
+### Insert new employee
 ```
 mutation {
   insert(name: "João", age: 25, email: "joao@gmail.com", phone: "11987654321") {
@@ -29,7 +27,7 @@ mutation {
 }
 ```
 ___
-### update employee
+### Update employee
 ```
 mutation {
   update(id: "e0a8b6db-fdba-4546-98ce-e3cc973120f9", name: "Pedrovisk" age:32, email: "pedrovisk@gmail.com", phone: "11999999999") {
@@ -38,7 +36,7 @@ mutation {
 }
 ```
 ___
-### delete employee
+### Delete employee
 ```
 mutation {
   delete(id: "e0a8b6db-fdba-4546-98ce-e3cc973120f9")

@@ -41,15 +41,14 @@ class EmployeeService(val employeeRepository: EmployeeRepository) {
 
     fun update(employeeId: String, employee: Employee): Employee {
         val employeeUUID = UUID.fromString(employeeId);
-        val employeeEntity = employeeRepository.findByIdOrNull(employeeUUID)
         log.info("[UPDATE] finding employee in database...")
-        if (employeeEntity == null) {
-            throw EntityNotFoundException("Employee id: $employeeId not found")
+        val employeeEntity = employeeRepository.findById(employeeUUID).orElseThrow {
+            EntityNotFoundException("Employee id: $employeeId not found")
         }
-        if (employee.name != null) employeeEntity.name = employee.name
-        if (employee.age != null) employeeEntity.age = employee.age
-        if (employee.email != null) employeeEntity.email = employee.email
-        if (employee.phone != null) employeeEntity.phone = employee.phone
+        employee.name?.let { employeeEntity.name = it }
+        employee.age?.let { employeeEntity.age = it }
+        employee.email?.let { employeeEntity.email = it }
+        employee.phone?.let { employeeEntity.phone = it}
         log.info("[UPDATE] updating employee in database...")
         return employeeRepository.save(employeeEntity)
     }

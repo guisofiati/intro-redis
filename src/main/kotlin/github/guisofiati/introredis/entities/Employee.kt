@@ -9,11 +9,10 @@ import java.util.UUID
 @Entity
 @Table(name = "TB_EMPLOYEES")
 class Employee: Serializable {
-
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    lateinit var id: UUID
-    lateinit var name: String
-    var age: Int = 0
-    lateinit var email: String
-    lateinit var phone: String
+    var id: UUID? = null
+    var name: String? = null
+    var age: Int? = null
+    var email: String? = null
+    var phone: String? = null
 }

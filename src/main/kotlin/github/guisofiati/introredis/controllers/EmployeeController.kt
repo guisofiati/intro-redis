@@ -30,13 +30,13 @@ class EmployeeController(val employeeService: EmployeeService) {
         return employeeService.insert(employee)
     }
 
-    @CachePut(value = ["employees"], key ="#id")
+    @CachePut(value = ["employees"], key ="#id") // update result in cache
     @MutationMapping
     fun update(@Argument id: String, @Arguments employee: Employee): Employee {
         return employeeService.update(id, employee)
     }
 
-    @CacheEvict(value = ["employees"], key = "#id", allEntries = false)
+    @CacheEvict(value = ["employees"], key = "#id", allEntries = false) // remove result of cache
     @MutationMapping
     fun delete(@Argument id: String): Boolean {
         employeeService.delete(id)

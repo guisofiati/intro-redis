@@ -21,20 +21,15 @@ class EmployeeService(val employeeRepository: EmployeeRepository) {
 
     fun findById(employeeId: String): Employee {
         val employeeUUID = UUID.fromString(employeeId);
-        val employee = employeeRepository.findByIdOrNull(employeeUUID)
         log.info("[FIND ONE] finding employee in database...")
-        if (employee == null) {
-            throw EntityNotFoundException("Employee id: $employeeId not found")
+        return employeeRepository.findById(employeeUUID).orElseThrow {
+            EntityNotFoundException("Employee id: $employeeId not found")
         }
-        return employee
     }
 
     fun insert(employee: Employee): Employee {
         val newEmployee = Employee()
-        newEmployee.name = employee.name
-        newEmployee.age = employee.age
-        newEmployee.email = employee.email
-        newEmployee.phone = employee.phone
+        BeanUtils.copyProperties(employee, newEmployee)
         log.info("[INSERT] saving employee in database...")
         return employeeRepository.save(newEmployee)
     }
@@ -55,10 +50,8 @@ class EmployeeService(val employeeRepository: EmployeeRepository) {
 
     fun delete(employeeId: String): Boolean {
         val employeeUUID = UUID.fromString(employeeId);
-        val employee = employeeRepository.findByIdOrNull(employeeUUID)
-        log.info("[DELETING] finding employee in database...")
-        if (employee == null) {
-            throw EntityNotFoundException("Employee id: $employeeId not found")
+        employeeRepository.findById(employeeUUID).orElseThrow {
+            EntityNotFoundException("Employee id: $employeeId not found")
         }
         log.info("[DELETING] deleting employee in database...")
         employeeRepository.deleteById(employeeUUID)
